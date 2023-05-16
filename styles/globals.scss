@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$gold: #e7ba4f;
+$black: #232323;
+$white: #fff;
+.swiper-pagination-bullet{
+    background: $gold !important;
+}
+
+.swiper-wrapper{
+    padding-bottom: 2rem;
+}
+
+.swiper-pagination{
+    display: flex;
+    justify-content: center;
+}
+
+.accordion-item{
+    background-color: lighten($black, 15);
+    color: $white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    border: none;
+    margin: 1rem 0;
+}
+
+.btn-gold{
+    background-color: $gold;
+    font-weight: bold;
+    border: none;
+    &:hover{
+        background-color: darken($gold, 10);
+    }
+}
+
+.accordion-button{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: $gold;
+    background-color: lighten($black, 10);
+    &:after{
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23e7ba4f'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+    }
+    &:focus{
+        box-shadow: inherit;
+    }
+}
+
+.accordion-button:not(.collapsed){
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    color: $gold;
+    box-shadow: inherit;
+    background-color: lighten($black, 10);
+    &:after{
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23e7ba4f'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+    }
+}
+
+.PhoneInputInput{
+    border: none;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

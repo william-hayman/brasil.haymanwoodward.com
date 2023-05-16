@@ -1,0 +1,80 @@
+@import './globals.scss';
+
+.select{
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 2rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: lighten($black, 5);
+  color: $white;
+}
+
+.title{
+  font-family: 'Raleway', sans-serif;
+  h1{
+    font-weight: 900;
+  }
+  h3{
+    font-weight: 700;
+    color: $gold;
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+}
+
+.link{
+  display: block;
+  a{
+    background-color: lighten($black, 10);
+    padding: 1rem;
+    display: table;
+    margin: 0 auto;
+    text-decoration: none;
+    color: $white;
+    font-family: 'Raleway', sans-serif;
+    width: 80%;
+    border-radius: .5rem;
+    font-weight: bold;
+    &:hover{
+      background-color: $gold;
+      color: $black;
+    }
+  }
+}
+
+.logotipo {
+  max-width: 250px;
+  height: auto;
+  @media screen and (max-width: 968px) {
+    margin-bottom: 3rem;
+  }
+}
+
+.copyright {
+  font-size: .6rem;
+  font-family: 'Raleway', sans-serif;
+}
+
+.haybrand {
+  font-size: .8rem;
+
+  span {
+    font-weight: bold;
+    color: $gold;
+  }
+}
+
+.localeFlag{
+  margin-top: 2rem;
+  display: block;
+  span{
+    cursor: pointer;
+    font-weight: bold;
+    color: $gold;
+    font-size: .7rem;
+    text-transform: uppercase;
+  }
+}

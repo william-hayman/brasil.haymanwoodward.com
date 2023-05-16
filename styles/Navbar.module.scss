@@ -1,0 +1,62 @@
+@import './globals.scss';
+
+.navbarFixed{
+    position: fixed !important;
+    width: 100%;
+    transition: 250ms linear;
+    @media screen and (max-width: 968px) {
+        background: $black;
+    }
+    a{
+        color: $white;
+        font-family: 'Raleway', sans-serif;
+        color: $white;
+        font-weight: 700;
+        &.especial{
+            border: 1px solid $gold;
+            color: $gold;
+            border-radius: .5rem;
+            margin-left: .5rem;
+            padding-left: 1rem  !important;
+            padding-right: 1rem !important;
+            &:hover{
+                color: $white
+            }
+        }
+        &:hover{
+            color: $gold
+        }
+    }
+    &:before{
+        height: 3px;
+        content: "";
+        background: linear-gradient(90deg, #00c811 0%, #00c811 60%, #ffea00 60%, #ffea00 80%, #0851aa 80%, #0851aa 100%);
+        background: linear-gradient(90deg, #00c811 0%, #00c811 60%, #ffea00 60%, #ffea00 80%, #0851aa 80%, #0851aa 100%);
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+}
+
+.link{
+    @media screen and (max-width: 968px) {
+        text-align: right;
+        border: none
+    }
+}
+
+.flexEnd{
+    @media screen and (max-width: 968px) {
+        align-items: end;
+    } 
+}
+
+.navbarBlack{
+    background: rgb(35 35 35 / 70%) !important;
+    backdrop-filter: blur(10.5px);
+}
+
+.logotipo{
+    width: 180px;
+    height: auto;
+}

@@ -1,0 +1,36 @@
+@import './globals.scss';
+
+.footer{
+    background-color: $black;
+    padding: 5rem 0 2rem;
+    color: $white;
+    h3{
+        font-family: 'Raleway', sans-serif;
+        color: $black;
+        font-weight: 700;
+    }
+}
+
+.logo{
+    @media screen and (max-width: 968px) {
+        margin-bottom: 3rem;
+    }
+}
+
+.alignRight{
+    font-size: .6rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.alignCenter{
+    font-size: .8rem;
+    span{
+        font-weight: bold;
+        color: $gold;
+    }
+}
+
+.logo{
+    width: 180px;
+    height: auto;
+}

@@ -1,0 +1,8 @@
+.videoIframe{
+    @media screen and (max-width: 968px) {
+        height: 360px;
+    }
+    @media screen and (max-width: 489px) {
+        height: 280px;
+    }
+}
