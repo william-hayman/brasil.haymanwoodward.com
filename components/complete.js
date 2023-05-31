@@ -30,6 +30,11 @@ export default function Complete() {
       setAddress('CASTRO’S PARK HOTEL: Av. República do Líbano, 1520 - St. Oeste, Goiânia - GO')
       setIsEvent(true)
     }
+    if(router.query.event === 'HW Experience Brasil 2023 (Belo Horizonte)'){
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-belo-horizonte?month=2023-07&date=2023-07-06')
+      setAddress('MERCURE BH VILA DA SERRA: Alameda Oscar Niemeyer, 405 - Vila da Serra – Nova Lima – MG')
+      setIsEvent(true)
+    }
   })
 
   const { t, lang } = useTranslation('common')

@@ -2,9 +2,11 @@ import Head from 'next/head'
 import Script from 'next/script'
 import React, {useEffect, useState} from "react";
 import styles from '@/styles/Home.module.scss'
-import Complete from '@/components/complete';
+import Signup from '@/components/signup';
 
 import Layout from '@/components/layout'
+
+const url = "belo-horizonte/evento"
 
 import useTranslation from 'next-translate/useTranslation'
 
@@ -35,13 +37,13 @@ export default function Home() {
       </Head>
       <Script
         id='jquery-bugfix'
-        strategy='lazyOnload'
+        // strategy='lazyOnload'
         src="https://code.jquery.com/jquery-3.6.0.min.js"
           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
           crossorigin="anonymous"
       />
 
-      <Complete />
+      <Signup event="HW Experience Brasil 2023 (Belo Horizonte)" refer=""/>
 
     </>
   )
@@ -51,6 +53,6 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   const { props } = page
   return (
-      <Layout url="rio-verde/evento">{page}</Layout>
+      <Layout url="goiabelo-horizontenia/evento">{page}</Layout>
   )
 }

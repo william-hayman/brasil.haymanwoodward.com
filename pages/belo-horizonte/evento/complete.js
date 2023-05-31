@@ -19,7 +19,7 @@ export default function Home() {
         <meta name='description' content={t('ctaTitle1')} />
         <meta property='og:title' content={`HAYMAN-WOODWARD - ` +t('exclusiveIn')} />
         <meta property='og:description' content={t('ctaTitle1')} />
-        <meta property='og:url' content='https://brasil.haymanwoodward.com' />
+        <meta property='og:url' content='https://saltlake.haymanwoodward.com' />
         <meta property="og:image:height" content="1005" />
         <meta property="og:image:width" content="1920" />
         <meta property="og:image" content="https://res.cloudinary.com/dkrpbdexy/image/upload/v1677596226/Hayman-Woodward/og-image_fazdj9.png" />
@@ -51,6 +51,6 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   const { props } = page
   return (
-      <Layout url="rio-verde/evento">{page}</Layout>
+      <Layout url="belo-horizonte">{page}</Layout>
   )
 }
