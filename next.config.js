@@ -16,7 +16,7 @@ const nextConfig = {
   },
   i18n: {
     locales: ['en', 'pt'], // Lista de idiomas suportados
-    defaultLocale: 'en', // Idioma padrão
+    defaultLocale: 'pt', // Idioma padrão
   },
 }
 

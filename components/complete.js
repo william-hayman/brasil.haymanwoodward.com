@@ -16,11 +16,13 @@ export default function Complete() {
   const router = useRouter()
 
   const [ linkEvent, setLinkEvent ] = useState('')
+  const [ address, setAddress ] = useState('')
   const [ isEvent, setIsEvent ] = useState(false)
 
   useEffect(() => {
     if(router.query.event === 'Rio Verde'){
       setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-rio-verde?month=2023-06&date=2023-06-27')
+      setAddress('GELPS HOTEL: R. Abel Pereira de Castro, 1362, Jd. Goiás, Rio Verde - GO')
       setIsEvent(true)
     }
   })
@@ -37,8 +39,9 @@ export default function Complete() {
                      
                 {isEvent ? (
                   <>
-                  <p>{t('complete1')}</p>
+                  {/* <p>{t('complete1')}</p> */}
                   <p className="my-4">{t('complete2')} <Link href={linkEvent} className="text-white fw-bold">{t('complete3')}</Link></p>
+                  <p className="my-4">{address}</p>
                   </>
                 ) : (
                   <>
