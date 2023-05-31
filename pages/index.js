@@ -89,6 +89,9 @@ const handleToggle = () => {
                   <div className={'col-md-12 my-2 ' + styles.link}>
                     <Link href={`/`+locale+`/sao-paulo/evento`}>{t('localeSP')} | {t('dateSP')} | {t('live')}</Link>
                   </div>
+                  <div className={'col-md-12 my-2 ' + styles.link}>
+                    <Link href={`/`+locale+`/curitiba/evento`}>{t('localePR')} | {t('datePR')} | {t('live')}</Link>
+                  </div>
                   <div className={'col-md-12 my-2 mt-4 ' + styles.localeFlag}>
                   <span onClick={handleToggle}>
                     {t('changeLanguage')}{locale === 'en'? "Portugues" : "English"}

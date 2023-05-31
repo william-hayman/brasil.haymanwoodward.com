@@ -45,6 +45,11 @@ export default function Complete() {
       setAddress('NOVOTEL SÃO PAULO BERRINI: Rua Henri Dunant, 792 – 04709-110 São Paulo - SP')
       setIsEvent(true)
     }
+    if(router.query.event === 'HW Experience Brasil 2023 (Curitiba)'){
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-curitiba?month=2023-07&date=2023-07-19')
+      setAddress('NOVOTEL CURITIBA BATEL: Rua Dr. Pedrosa, 288 – 80.420-120 – Curitiba - PR')
+      setIsEvent(true)
+    }
   })
 
   const { t, lang } = useTranslation('common')
