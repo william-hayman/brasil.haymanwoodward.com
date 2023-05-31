@@ -2,17 +2,25 @@ import Head from 'next/head'
 import Script from 'next/script'
 import React, {useEffect, useState} from "react";
 import styles from '@/styles/Home.module.scss'
-import Signup from '@/components/signup';
+import Countdown from '@/components/countdown';
+import Cta from '@/components/cta'
+import About from '@/components/about'
+import Speakers from '@/components/speakers'
+import Sponsors from '@/components/sponsors'
+import Questions from '@/components/questions'
+import Cases from '@/components/cases';
 
 import Layout from '@/components/layout'
 
-const url = "webinar"
-
+import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 
 export default function Home() {
 
   const { t, lang } = useTranslation('common')
+  const url = "goiania/evento"
+  const eventHour = "08h00 - 22h00"
+
 
   return (
     <>
@@ -21,7 +29,7 @@ export default function Home() {
         <meta name='description' content={t('ctaTitle1')} />
         <meta property='og:title' content={`HAYMAN-WOODWARD - ` +t('exclusiveIn')} />
         <meta property='og:description' content={t('ctaTitle1')} />
-        <meta property='og:url' content='https://brasil.haymanwoodward.com' />
+        <meta property='og:url' content='https://saltlake.haymanwoodward.com' />
         <meta property="og:image:height" content="1005" />
         <meta property="og:image:width" content="1920" />
         <meta property="og:image" content="https://res.cloudinary.com/dkrpbdexy/image/upload/v1677596226/Hayman-Woodward/og-image_fazdj9.png" />
@@ -36,23 +44,38 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <Script
+        id='gtag-manager-head'
+        strategy='lazyOnload'
+        dangerouslySetInnerHTML={{
+          __html: `
+          
+          `,
+        }}
+      />
+      <Script
         id='jquery-bugfix'
-        // strategy='lazyOnload'
+        strategy='lazyOnload'
         src="https://code.jquery.com/jquery-3.6.0.min.js"
           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
           crossorigin="anonymous"
       />
 
-      <Signup event="HW Experience Brasil 2023 (Rio Verde)" refer=""/>
+      <Cta  url={url} localeId={t('localeGOI')} eventDate={t('dateGOI')} eventType={t('live')} eventHour={eventHour}/>
+      <Countdown deadline="2023-06-30 08:00" url={url}/>
+      <About url={url}/>
+      <Cases url={url}/>
+      <Sponsors />
+      <Questions />
 
     </>
   )
 }
 
 
+
 Home.getLayout = function getLayout(page) {
   const { props } = page
   return (
-      <Layout url="rio-verde/evento">{page}</Layout>
+      <Layout url="goiania/evento">{page}</Layout>
   )
 }

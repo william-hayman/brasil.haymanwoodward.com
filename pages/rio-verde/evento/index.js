@@ -19,7 +19,7 @@ export default function Home() {
 
   const { t, lang } = useTranslation('common')
   const url = "rio-verde/evento"
-  const eventHour = "19h00"
+  const eventHour = "08h00 - 22h00"
 
 
   return (

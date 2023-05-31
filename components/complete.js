@@ -20,9 +20,14 @@ export default function Complete() {
   const [ isEvent, setIsEvent ] = useState(false)
 
   useEffect(() => {
-    if(router.query.event === 'Rio Verde'){
+    if(router.query.event === 'HW Experience Brasil 2023 (Rio Verde)'){
       setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-rio-verde?month=2023-06&date=2023-06-27')
       setAddress('GELPS HOTEL: R. Abel Pereira de Castro, 1362, Jd. Goiás, Rio Verde - GO')
+      setIsEvent(true)
+    }
+    if(router.query.event === 'HW Experience Brasil 2023 (Goiania)'){
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-goiania?month=2023-06&date=2023-06-30')
+      setAddress('CASTRO’S PARK HOTEL: Av. República do Líbano, 1520 - St. Oeste, Goiânia - GO')
       setIsEvent(true)
     }
   })

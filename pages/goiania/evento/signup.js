@@ -6,7 +6,7 @@ import Signup from '@/components/signup';
 
 import Layout from '@/components/layout'
 
-const url = "webinar"
+const url = "goiania/evento"
 
 import useTranslation from 'next-translate/useTranslation'
 
@@ -43,7 +43,7 @@ export default function Home() {
           crossorigin="anonymous"
       />
 
-      <Signup event="HW Experience Brasil 2023 (Rio Verde)" refer=""/>
+      <Signup event="HW Experience Brasil 2023 (Goiania)" refer=""/>
 
     </>
   )
@@ -53,6 +53,6 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   const { props } = page
   return (
-      <Layout url="rio-verde/evento">{page}</Layout>
+      <Layout url="goiania/evento">{page}</Layout>
   )
 }

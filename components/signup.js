@@ -197,7 +197,7 @@ export default function Signup({event, refer}) {
         // router.push("complete")
         router.push({
           pathname: 'complete',
-          query: { event: refer }
+          query: { event: event }
         })
 
       }
