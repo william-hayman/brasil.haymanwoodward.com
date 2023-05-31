@@ -19,10 +19,10 @@ export default function Complete() {
   const [ isEvent, setIsEvent ] = useState(false)
 
   useEffect(() => {
-    setLinkEvent('https://calendly.com/haymanwoodward/event-in-boston-usa?month=2023-05')
-    setIsEvent(true)
-    // if(router.query.event === 'may1920'){
-    // }
+    if(router.query.event === 'Rio Verde'){
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-rio-verde?month=2023-06&date=2023-06-27')
+      setIsEvent(true)
+    }
   })
 
   const { t, lang } = useTranslation('common')
