@@ -62,7 +62,7 @@ const handleToggle = () => {
         <div className={styles.select}>
           <div className={'container'}>
             <div className={'row justify-content-center'}>
-              <div className={'col-md-4'}>
+              <div className={'col-md-5'}>
                 <div className={'row'}>
                   <div className={'col-md-12'}>
                     <Image src={logotipo} alt="Hayman-Woodward" quality='100' className={styles.logotipo}/>
@@ -71,11 +71,11 @@ const handleToggle = () => {
                     <h1>{t('exclusiveIn')} <Image src={Flag} alt="Event Country Flag" quality='100'/></h1>
                     <h3>{t('select')}:</h3>
                   </div>
-                  {/* <div className={'col-md-12 my-2 ' + styles.link}>
-                    <Link href={`/`+locale+`/webinar`}>{t('webinar')} | {t('april27')}</Link>
-                  </div> */}
                   <div className={'col-md-12 my-2 ' + styles.link}>
                     <Link href={`/`+locale+`/webinar`}>{t('webinar')} | {t('may30')}</Link>
+                  </div>
+                  <div className={'col-md-12 my-2 ' + styles.link}>
+                    <Link href={`/`+locale+`/rio-verde/evento`}>{t('localeRV')} | {t('dateRV')} | {t('live')}</Link>
                   </div>
                   <div className={'col-md-12 my-2 mt-4 ' + styles.localeFlag}>
                   <span onClick={handleToggle}>
