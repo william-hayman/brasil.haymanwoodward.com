@@ -51,6 +51,6 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   const { props } = page
   return (
-      <Layout url="belo-horizonte/evento">{page}</Layout>
+      <Layout url="governador-valadares/evento">{page}</Layout>
   )
 }

@@ -35,6 +35,11 @@ export default function Complete() {
       setAddress('MERCURE BH VILA DA SERRA: Alameda Oscar Niemeyer, 405 - Vila da Serra – Nova Lima – MG')
       setIsEvent(true)
     }
+    if(router.query.event === 'HW Experience Brasil 2023 (Governador Valadares)'){
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-governador-valadares?month=2023-07')
+      setAddress('SAN DIEGO SUITES: R. Ten-Cel. Francisco Rodrigues, 51 - Morada do Acampamento, Gov. Valadares - MG')
+      setIsEvent(true)
+    }
   })
 
   const { t, lang } = useTranslation('common')

@@ -2,9 +2,11 @@ import Head from 'next/head'
 import Script from 'next/script'
 import React, {useEffect, useState} from "react";
 import styles from '@/styles/Home.module.scss'
-import Complete from '@/components/complete';
+import Signup from '@/components/signup';
 
 import Layout from '@/components/layout'
+
+const url = "governador-valadares/evento"
 
 import useTranslation from 'next-translate/useTranslation'
 
@@ -19,7 +21,7 @@ export default function Home() {
         <meta name='description' content={t('ctaTitle1')} />
         <meta property='og:title' content={`HAYMAN-WOODWARD - ` +t('exclusiveIn')} />
         <meta property='og:description' content={t('ctaTitle1')} />
-        <meta property='og:url' content='https://saltlake.haymanwoodward.com' />
+        <meta property='og:url' content='https://brasil.haymanwoodward.com' />
         <meta property="og:image:height" content="1005" />
         <meta property="og:image:width" content="1920" />
         <meta property="og:image" content="https://res.cloudinary.com/dkrpbdexy/image/upload/v1677596226/Hayman-Woodward/og-image_fazdj9.png" />
@@ -35,13 +37,13 @@ export default function Home() {
       </Head>
       <Script
         id='jquery-bugfix'
-        strategy='lazyOnload'
+        // strategy='lazyOnload'
         src="https://code.jquery.com/jquery-3.6.0.min.js"
           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
           crossorigin="anonymous"
       />
 
-      <Complete />
+      <Signup event="HW Experience Brasil 2023 (Governador Valadares)" refer=""/>
 
     </>
   )
@@ -51,6 +53,6 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   const { props } = page
   return (
-      <Layout url="belo-horizonte/evento">{page}</Layout>
+      <Layout url="governador-valadares/evento">{page}</Layout>
   )
 }
