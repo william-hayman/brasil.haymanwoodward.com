@@ -40,6 +40,11 @@ export default function Complete() {
       setAddress('SAN DIEGO SUITES: R. Ten-Cel. Francisco Rodrigues, 51 - Morada do Acampamento, Gov. Valadares - MG')
       setIsEvent(true)
     }
+    if(router.query.event === 'HW Experience Brasil 2023 (São Paulo)'){
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-sao-paulo?month=2023-07')
+      setAddress('NOVOTEL SÃO PAULO BERRINI: Rua Henri Dunant, 792 – 04709-110 São Paulo - SP')
+      setIsEvent(true)
+    }
   })
 
   const { t, lang } = useTranslation('common')

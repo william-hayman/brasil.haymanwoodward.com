@@ -18,7 +18,7 @@ import useTranslation from 'next-translate/useTranslation'
 export default function Home() {
 
   const { t, lang } = useTranslation('common')
-  const url = "rio-verde/evento"
+  const url = "sao-paulo/evento"
   const eventHour = "08h00 - 22h00"
 
 
@@ -60,8 +60,8 @@ export default function Home() {
           crossorigin="anonymous"
       />
 
-      <Cta  url={url} localeId={t('localeRV')} eventDate={t('dateRV')} eventType={t('live')} eventHour={eventHour}/>
-      <Countdown deadline="2023-06-27 08:00" url={url}/>
+      <Cta  url={url} localeId={t('localeSP')} eventDate={t('dateSP')} eventType={t('live')} eventHour={eventHour}/>
+      <Countdown deadline="2023-07-14 08:00" url={url}/>
       <About url={url}/>
       <Cases url={url}/>
       <Sponsors />
@@ -76,6 +76,6 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   const { props } = page
   return (
-      <Layout url="rio-verde/evento">{page}</Layout>
+      <Layout url="sao-paulo/evento">{page}</Layout>
   )
 }

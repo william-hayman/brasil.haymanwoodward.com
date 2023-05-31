@@ -2,25 +2,15 @@ import Head from 'next/head'
 import Script from 'next/script'
 import React, {useEffect, useState} from "react";
 import styles from '@/styles/Home.module.scss'
-import Countdown from '@/components/countdown';
-import Cta from '@/components/cta'
-import About from '@/components/about'
-import Speakers from '@/components/speakers'
-import Sponsors from '@/components/sponsors'
-import Questions from '@/components/questions'
-import Cases from '@/components/cases';
+import Complete from '@/components/complete';
 
 import Layout from '@/components/layout'
 
-import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 
 export default function Home() {
 
   const { t, lang } = useTranslation('common')
-  const url = "rio-verde/evento"
-  const eventHour = "08h00 - 22h00"
-
 
   return (
     <>
@@ -44,15 +34,6 @@ export default function Home() {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <Script
-        id='gtag-manager-head'
-        strategy='lazyOnload'
-        dangerouslySetInnerHTML={{
-          __html: `
-          
-          `,
-        }}
-      />
-      <Script
         id='jquery-bugfix'
         strategy='lazyOnload'
         src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -60,22 +41,16 @@ export default function Home() {
           crossorigin="anonymous"
       />
 
-      <Cta  url={url} localeId={t('localeRV')} eventDate={t('dateRV')} eventType={t('live')} eventHour={eventHour}/>
-      <Countdown deadline="2023-06-27 08:00" url={url}/>
-      <About url={url}/>
-      <Cases url={url}/>
-      <Sponsors />
-      <Questions />
+      <Complete />
 
     </>
   )
 }
 
 
-
 Home.getLayout = function getLayout(page) {
   const { props } = page
   return (
-      <Layout url="rio-verde/evento">{page}</Layout>
+      <Layout url="sao-paulo/evento">{page}</Layout>
   )
 }
