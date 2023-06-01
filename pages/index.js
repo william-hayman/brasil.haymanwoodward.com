@@ -101,6 +101,9 @@ const handleToggle = () => {
                     <Link href={`/`+locale+`/rio-verde/evento`}>{t('localeRV')} | {t('dateRV')} | {t('live')}</Link>
                   </div>
                   <div className={'col-md-12 my-2 ' + styles.link}>
+                    <Link href={`/`+locale+`/brasilia/evento`}>{t('localeBRASILIA')} | {t('dateBRASILIA')} | {t('live')}</Link>
+                  </div>
+                  <div className={'col-md-12 my-2 ' + styles.link}>
                     <Link href={`/`+locale+`/goiania/evento`}>{t('localeGOI')} | {t('dateGOI')} | {t('live')}</Link>
                   </div>
                   <div className={'col-md-12 my-2 ' + styles.link}>

@@ -60,6 +60,11 @@ export default function Complete() {
       setAddress('CEO OFFICES: Av João Cabral de Mello Neto, 850 - BL03 SL1720 - Barra da Tijuca, Rio de Janeiro - RJ')
       setIsEvent(true)
     }
+    if(router.query.event === 'HW Experience Brasil 2023 (Brasília)'){
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-rio-de-janeiro?month=2023-07&date=2023-07-25')
+      setAddress('Em breve informaremos o local do evento!')
+      setIsEvent(true)
+    }
   })
 
   const { t, lang } = useTranslation('common')
