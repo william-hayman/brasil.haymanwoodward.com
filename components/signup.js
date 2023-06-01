@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from '@/styles/Signup.module.scss'
 import { useRouter } from "next/router";
 
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
+
 import useTranslation from 'next-translate/useTranslation'
 
 import serviceListEn from '../locales/en/services.json'
@@ -83,6 +85,19 @@ export default function Signup({event, refer}) {
   const [message, setMessage] = useState("");
   
   const [errors, setErrors] = useState({});
+  
+  const [referencia, setReferencia] = useState("");
+  
+  useEffect(()=>{
+    const cookies = parseCookies()
+    if(cookies.fromRefer != undefined){
+      console.log(cookies.fromRefer)
+      setReferencia(cookies.fromRefer)
+    }
+  }, [])
+
+
+  
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -178,7 +193,7 @@ export default function Signup({event, refer}) {
           language: language,
           timeExperience: timeExperience,
           event: event,
-          refer: refer,
+          refer: referencia,
         }),
       });
       let resJson = await res.json();

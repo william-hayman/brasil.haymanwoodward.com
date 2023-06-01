@@ -12,9 +12,32 @@ import Col from 'react-bootstrap/Col';
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
 
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
+
 export default function Home() {
 
 const { t, lang } = useTranslation('common')
+
+useEffect(()=> {
+  const cookies = parseCookies()
+  
+  if(router.query.refer === 'natalia'){
+    setCookie(null, 'fromRefer', 'Natalia Gaudio', {
+      maxAge: 30 * 24 * 60 * 60,
+      path: '/',
+    })  
+  }
+  if(router.query.refer === 'danielle'){
+    setCookie(null, 'fromRefer', 'Danielle Nobile', {
+      maxAge: 30 * 24 * 60 * 60,
+      path: '/',
+    })  
+  }
+  console.log({ cookies })
+
+  // Set
+
+}, [])
 
 const router = useRouter()
 const { locale } = router 
