@@ -61,7 +61,7 @@ export default function Complete() {
       setIsEvent(true)
     }
     if(router.query.event === 'HW Experience Brasil 2023 (Brasília)'){
-      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-rio-de-janeiro?month=2023-07&date=2023-07-25')
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-brasilia?month=2023-06&date=2023-06-30')
       setAddress('Em breve informaremos o local do evento!')
       setIsEvent(true)
     }
