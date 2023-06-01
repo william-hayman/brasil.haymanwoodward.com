@@ -50,6 +50,11 @@ export default function Complete() {
       setAddress('NOVOTEL CURITIBA BATEL: Rua Dr. Pedrosa, 288 – 80.420-120 – Curitiba - PR')
       setIsEvent(true)
     }
+    if(router.query.event === 'HW Experience Brasil 2023 (Porto Alegre)'){
+      setLinkEvent('https://calendly.com/haymanwoodward/hw-experience-brasil-porto-alegre?month=2023-07')
+      setAddress('Em breve informaremos o local do evento!')
+      setIsEvent(true)
+    }
   })
 
   const { t, lang } = useTranslation('common')
