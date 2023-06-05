@@ -78,6 +78,7 @@
     "profession": "Profissão",
     "countryResidence": "País de residência",
     "annualIncome": "Renda mensal",
+    "city": "Cidade de residência",
     "language": "Em que idioma você gostaria de ser contatado",
     "required": "Este campo é obrigatório",
     "validEmail": "Insira um e-mail válido",

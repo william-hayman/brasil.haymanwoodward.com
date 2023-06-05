@@ -78,6 +78,7 @@ export default function Signup({event, refer}) {
   const [migrateTo, setMigrateTo] = useState("");
   const [country, setCountry] = useState("");
   const [annualIncome, setAnnualIncome] = useState("");
+  const [formLink, setFormLink] = useState("");
   const [academicBackground, setAcademicBackground] = useState("");
   const [timeExperience, setTimeExperience] = useState("");
   const [occupation, setOccupation] = useState("");
@@ -177,7 +178,7 @@ export default function Signup({event, refer}) {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          'Api-Token': process.env.token,
+          "Api-Token": process.env.token,
         },
         body: JSON.stringify({
           firstName: firstName,
@@ -190,6 +191,7 @@ export default function Signup({event, refer}) {
           migrateTo: migrateTo,
           academicBackground: academicBackground,
           occupation: occupation,
+          formLink: formLink,
           language: language,
           timeExperience: timeExperience,
           event: event,
@@ -204,6 +206,7 @@ export default function Signup({event, refer}) {
         setPhone("");
         setService("");
         setMigrateTo("");
+        setFormLink("");
         setAcademicBackground("");
         setTimeExperience("");
         setOccupation("");
@@ -257,186 +260,389 @@ export default function Signup({event, refer}) {
 
   return (
     <>
-      <div className={styles.signup} id='about'>
-        <div className='container'>
-          <div className='row text-center text-md-start'>
-            <div className='col-md-10 offset-md-1'>
-                <h2>{t('register')}</h2>
+      <div className={styles.signup} id="about">
+        <div className="container">
+          <div className="row text-center text-md-start">
+            <div className="col-md-10 offset-md-1">
+              <h2>{t("register")}</h2>
 
-                <form className="" onSubmit={handleSubmit}>
-
-                  <div className="row">
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="firstName" className="form-label">{t('firstName')}:</label>
-                        <input type="text" className={`form-control ${errors.firstName ? 'is-invalid' : ''}`} value={firstName} name="firstName" onChange={(e) => setFirstName(e.target.value)} required/>
-                        {errors.firstName && <div className="invalid-feedback">{errors.firstName}</div>}
-                      </div>
-                    </div>
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="lastName" className="form-label">{t('lastName')}:</label>
-                        <input type="text" className={`form-control ${errors.lastName ? 'is-invalid' : ''}`} value={lastName} name="lastName" onChange={(e) => setLastName(e.target.value)} required/>
-                        {errors.lastName && <div className="invalid-feedback">{errors.lastName}</div>}
-                      </div>
+              <form className="" onSubmit={handleSubmit}>
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="firstName" className="form-label">
+                        {t("firstName")}:
+                      </label>
+                      <input
+                        type="text"
+                        className={`form-control ${
+                          errors.firstName ? "is-invalid" : ""
+                        }`}
+                        value={firstName}
+                        name="firstName"
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                      />
+                      {errors.firstName && (
+                        <div className="invalid-feedback">
+                          {errors.firstName}
+                        </div>
+                      )}
                     </div>
                   </div>
-
-                  <div className="row">
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="email" className="form-label">{t('email')}:</label>
-                        <input type="email" className={`form-control ${errors.email ? 'is-invalid' : ''}`} value={email} name="email" onChange={(e) => setEmail(e.target.value)} required/>
-                        {errors.email && <div className="invalid-feedback">{errors.email}</div>}
-                        
-                      </div>
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="lastName" className="form-label">
+                        {t("lastName")}:
+                      </label>
+                      <input
+                        type="text"
+                        className={`form-control ${
+                          errors.lastName ? "is-invalid" : ""
+                        }`}
+                        value={lastName}
+                        name="lastName"
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                      />
+                      {errors.lastName && (
+                        <div className="invalid-feedback">
+                          {errors.lastName}
+                        </div>
+                      )}
                     </div>
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="phone" className="form-label">{t('phone')}</label>
-                        <PhoneInput
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="email" className="form-label">
+                        {t("email")}:
+                      </label>
+                      <input
+                        type="email"
+                        className={`form-control ${
+                          errors.email ? "is-invalid" : ""
+                        }`}
+                        value={email}
+                        name="email"
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                      {errors.email && (
+                        <div className="invalid-feedback">{errors.email}</div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="phone" className="form-label">
+                        {t("phone")}
+                      </label>
+                      <PhoneInput
                         international
-                        className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
+                        className={`form-control ${
+                          errors.phone ? "is-invalid" : ""
+                        }`}
                         // placeholder="Enter phone number"
                         minLength={6}
                         defaultCountry="US"
                         value={phone}
-                        onChange={setPhone}/>
-                        <input type="hidden" className={`form-control ${errors.phone ? 'is-invalid' : ''}`} value={phone} minLength={6} name="phone" onChange={(e) => setPhone(e.target.value)} required/>
-                        {errors.phone && <div className="invalid-feedback">{errors.phone}</div>}
-                      </div>
+                        onChange={setPhone}
+                      />
+                      <input
+                        type="hidden"
+                        className={`form-control ${
+                          errors.phone ? "is-invalid" : ""
+                        }`}
+                        value={phone}
+                        minLength={6}
+                        name="phone"
+                        onChange={(e) => setPhone(e.target.value)}
+                        required
+                      />
+                      {errors.phone && (
+                        <div className="invalid-feedback">{errors.phone}</div>
+                      )}
                     </div>
                   </div>
+                </div>
 
-                  <div className="row">
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="service" className="form-label">{t('howCanHelp')}</label>
-                        <select className={`form-select ${errors.phone ? 'is-invalid' : ''}`} name="service" aria-label="service" onChange={handleServiceChange} required>
-                          <option value=""></option>
-                          {Object.entries(serviceList).map(([key, value]) => (
-                            <option key={key} value={key}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.service && <div className="invalid-feedback">{errors.service}</div>}
-                      </div>
-                    </div>
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="migrateTo" className="form-label">{t('migrateTo')}</label>
-                        <select className={`form-select ${errors.migrateTo ? 'is-invalid' : ''}`} name="migrateTo" aria-label="migrateTo" defaultValue={'DEFAULT'} onChange={handleMigrateToChange} required>
-                          <option value="DEFAULT" disabled></option>
-                          {Object.entries(countryList).map(([key, value]) => (
-                            <option key={key} value={key}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.migrateTo && <div className="invalid-feedback">{errors.migrateTo}</div>}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="academicBackground" className="form-label">{t('academicBackground')}</label>
-                        <select className={`form-select ${errors.academicBackground ? 'is-invalid' : ''}`} name="academicBackground" aria-label="academicBackground" defaultValue={'DEFAULT'} onChange={handleAcademicBackgroundChange} required>
-                          <option value="DEFAULT" disabled></option>
-                          {Object.entries(academicList).map(([key, value]) => (
-                            <option key={key} value={key}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.academicBackground && <div className="invalid-feedback">{errors.academicBackground}</div>}
-                      </div>
-                    </div>
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="timeExperience" className="form-label">{t('experience')}:</label>
-                        <select className={`form-select ${errors.timeExperience ? 'is-invalid' : ''}`} name="timeExperience" aria-label="timeExperience" defaultValue={'DEFAULT'} onChange={handleTimeExperienceChange} required>
-                          <option value="DEFAULT" disabled></option>
-                          {Object.entries(xpList).map(([key, value]) => (
-                            <option key={key} value={key}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.timeExperience && <div className="invalid-feedback">{errors.timeExperience}</div>}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="country" className="form-label">{t('countryResidence')}</label>
-                        <select className={`form-select ${errors.country ? 'is-invalid' : ''}`} name="country" aria-label="country" defaultValue={'DEFAULT'} onChange={handleCountryChange} required>
-                          <option value="DEFAULT" disabled></option>
-                          {Object.entries(countryRList).map(([key, value]) => (
-                            <option key={key} value={key}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.country && <div className="invalid-feedback">{errors.country}</div>}
-                      </div>
-                    </div>
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="annualIncome" className="form-label">{t('annualIncome')}:</label>
-                        <select className={`form-select ${errors.annualIncome ? 'is-invalid' : ''}`} name="annualIncome" aria-label="annualIncome" defaultValue={'DEFAULT'} onChange={handleAnnualIncomeChange}>
-                          <option value="DEFAULT" disabled></option>
-                          {Object.entries(incomeList).map(([key, value]) => (
-                            <option key={key} value={key}>
-                              {value}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.annualIncome && <div className="invalid-feedback">{errors.annualIncome}</div>}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="occupation" className="form-label">{t('profession')}</label>
-                        <input type="text" className={`form-control ${errors.occupation ? 'is-invalid' : ''}`} value={occupation} name="occupation" onChange={(e) => setOccupation(e.target.value)} required/>
-                        {errors.occupation && <div className="invalid-feedback">{errors.occupation}</div>}
-                      </div>
-                    </div>
-                    <div className="col-md-6 mb-4">
-                      <div className={styles.blockForm}>
-                        <label htmlFor="language" className="form-label">
-                        {t('language')}</label>
-                        <select className={`form-select ${errors.language ? 'is-invalid' : ''}`} name="language" aria-label="language" defaultValue={'DEFAULT'} onChange={handleLanguageChange} required>
-                          <option value="DEFAULT" disabled></option>
-                          {Object.entries(langList).map(([key, value]) => (
-                            <option key={key} value={key}>
-                              {value}
-                            </option>
-                          ))}
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="service" className="form-label">
+                        {t("howCanHelp")}
+                      </label>
+                      <select
+                        className={`form-select ${
+                          errors.phone ? "is-invalid" : ""
+                        }`}
+                        name="service"
+                        aria-label="service"
+                        onChange={handleServiceChange}
+                        required
+                      >
+                        <option value=""></option>
+                        {Object.entries(serviceList).map(([key, value]) => (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        ))}
                       </select>
-                      {errors.language && <div className="invalid-feedback">{errors.language}</div>}
-                    </div>
+                      {errors.service && (
+                        <div className="invalid-feedback">{errors.service}</div>
+                      )}
                     </div>
                   </div>
-
-                  <div className="col-12">
-                    <button type="submit" className="btn btn-gold" ref={buttonRef}>{t('exclusiveCta')}</button>
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="migrateTo" className="form-label">
+                        {t("migrateTo")}
+                      </label>
+                      <select
+                        className={`form-select ${
+                          errors.migrateTo ? "is-invalid" : ""
+                        }`}
+                        name="migrateTo"
+                        aria-label="migrateTo"
+                        defaultValue={"DEFAULT"}
+                        onChange={handleMigrateToChange}
+                        required
+                      >
+                        <option value="DEFAULT" disabled></option>
+                        {Object.entries(countryList).map(([key, value]) => (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.migrateTo && (
+                        <div className="invalid-feedback">
+                          {errors.migrateTo}
+                        </div>
+                      )}
+                    </div>
                   </div>
+                </div>
 
-                </form>
-                <div className="message">{message ? <p>{message}</p> : null}</div>
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label
+                        htmlFor="academicBackground"
+                        className="form-label"
+                      >
+                        {t("academicBackground")}
+                      </label>
+                      <select
+                        className={`form-select ${
+                          errors.academicBackground ? "is-invalid" : ""
+                        }`}
+                        name="academicBackground"
+                        aria-label="academicBackground"
+                        defaultValue={"DEFAULT"}
+                        onChange={handleAcademicBackgroundChange}
+                        required
+                      >
+                        <option value="DEFAULT" disabled></option>
+                        {Object.entries(academicList).map(([key, value]) => (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.academicBackground && (
+                        <div className="invalid-feedback">
+                          {errors.academicBackground}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="timeExperience" className="form-label">
+                        {t("experience")}:
+                      </label>
+                      <select
+                        className={`form-select ${
+                          errors.timeExperience ? "is-invalid" : ""
+                        }`}
+                        name="timeExperience"
+                        aria-label="timeExperience"
+                        defaultValue={"DEFAULT"}
+                        onChange={handleTimeExperienceChange}
+                        required
+                      >
+                        <option value="DEFAULT" disabled></option>
+                        {Object.entries(xpList).map(([key, value]) => (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.timeExperience && (
+                        <div className="invalid-feedback">
+                          {errors.timeExperience}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-12 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="formLink" className="form-label">
+                        {t("city")}
+                      </label>
+                      <input
+                        type="text"
+                        className={`form-control ${
+                          errors.formLink ? "is-invalid" : ""
+                        }`}
+                        value={formLink}
+                        name="formLink"
+                        onChange={(e) => setFormLink(e.target.value)}
+                        
+                      />
+                      {errors.formLink && (
+                        <div className="invalid-feedback">
+                          {errors.formLink}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="country" className="form-label">
+                        {t("countryResidence")}
+                      </label>
+                      <select
+                        className={`form-select ${
+                          errors.country ? "is-invalid" : ""
+                        }`}
+                        name="country"
+                        aria-label="country"
+                        defaultValue={"DEFAULT"}
+                        onChange={handleCountryChange}
+                        required
+                      >
+                        <option value="DEFAULT" disabled></option>
+                        {Object.entries(countryRList).map(([key, value]) => (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.country && (
+                        <div className="invalid-feedback">{errors.country}</div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="annualIncome" className="form-label">
+                        {t("annualIncome")}:
+                      </label>
+                      <select
+                        className={`form-select ${
+                          errors.annualIncome ? "is-invalid" : ""
+                        }`}
+                        name="annualIncome"
+                        aria-label="annualIncome"
+                        defaultValue={"DEFAULT"}
+                        onChange={handleAnnualIncomeChange}
+                      >
+                        <option value="DEFAULT" disabled></option>
+                        {Object.entries(incomeList).map(([key, value]) => (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.annualIncome && (
+                        <div className="invalid-feedback">
+                          {errors.annualIncome}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="occupation" className="form-label">
+                        {t("profession")}
+                      </label>
+                      <input
+                        type="text"
+                        className={`form-control ${
+                          errors.occupation ? "is-invalid" : ""
+                        }`}
+                        value={occupation}
+                        name="occupation"
+                        onChange={(e) => setOccupation(e.target.value)}
+                        required
+                      />
+                      {errors.occupation && (
+                        <div className="invalid-feedback">
+                          {errors.occupation}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="col-md-6 mb-4">
+                    <div className={styles.blockForm}>
+                      <label htmlFor="language" className="form-label">
+                        {t("language")}
+                      </label>
+                      <select
+                        className={`form-select ${
+                          errors.language ? "is-invalid" : ""
+                        }`}
+                        name="language"
+                        aria-label="language"
+                        defaultValue={"DEFAULT"}
+                        onChange={handleLanguageChange}
+                        required
+                      >
+                        <option value="DEFAULT" disabled></option>
+                        {Object.entries(langList).map(([key, value]) => (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.language && (
+                        <div className="invalid-feedback">
+                          {errors.language}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-12">
+                  <button
+                    type="submit"
+                    className="btn btn-gold"
+                    ref={buttonRef}
+                  >
+                    {t("exclusiveCta")}
+                  </button>
+                </div>
+              </form>
+              <div className="message">{message ? <p>{message}</p> : null}</div>
             </div>
           </div>
         </div>
       </div>
-
     </>
-  )
+  );
 }
