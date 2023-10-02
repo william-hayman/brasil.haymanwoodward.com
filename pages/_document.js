@@ -1,14 +1,13 @@
-import { Html, Head, Main, NextScript } from 'next/document'
-import Script from 'next/script'
-import { useEffect } from 'react'
+import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
+import { useEffect } from "react";
 export default function Document() {
-
   return (
     <Html lang="en">
       <Head>
         <Script
-          id='gtag-manager-head'
-          strategy='lazyOnload'
+          id="gtag-manager-head"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
 
@@ -45,12 +44,28 @@ export default function Document() {
         />
       </Head>
       <body>
-        <noscript dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS3LQ3R" height="0" width="0" style="display:none;visibility:hidden"></iframe>`}}></noscript>
-        <noscript dangerouslySetInnerHTML={{ __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3273630849587112&ev=PageView&noscript=1"/>`}}></noscript>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-11140501780" strategy="afterInteractive" />
         <Script
-          id='gtag-manager-head'
-          strategy='lazyOnload'
+          id="ze-snippet"
+          src="https://static.zdassets.com/ekr/snippet.js?key=4cafa407-b6a9-4bfd-9b4b-10a7b43b212a"
+        />
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS3LQ3R" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+          }}
+        ></noscript>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3273630849587112&ev=PageView&noscript=1"/>`,
+          }}
+        ></noscript>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11140501780"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-manager-head"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
             // ADS GOOGLE
@@ -63,10 +78,9 @@ export default function Document() {
           }}
         />
 
-
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
